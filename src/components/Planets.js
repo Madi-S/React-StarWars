@@ -10,7 +10,12 @@ const fetchPlanets = async () => {
 }
 
 const Planets = () => {
-    const { data, isLoading, error } = useQuery('planets', fetchPlanets)
+    const { data, isLoading, error } = useQuery('planets', fetchPlanets, {
+        staleTime: 2000, // Query will remain fresh for 2 seconds
+        retry: 2, // Throw error after n unsuccessful requests,
+        cacheTime: 36000, // Cache data for n milliseconds
+        onSuccess: () => console.log('Will be fired when data is fetched')
+    })
 
     return (
         <div>
