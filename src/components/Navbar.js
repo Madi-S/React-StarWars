@@ -22,6 +22,13 @@ const Navbar = ({ setPage, currPage }) => {
             >
                 Countries
             </button>
+            <button
+                onClick={() => {
+                    if (currPage !== 'users') setPage('users')
+                }}
+            >
+                Users
+            </button>
         </nav>
     )
 }

@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import Navbar from './components/Navbar'
 import People from './components/People'
 import Planets from './components/Planets'
 import Countries from './components/Countries'
+import Users from './components/Users'
 
 const queryClient = new QueryClient()
 
@@ -14,6 +15,7 @@ function App() {
     
     let ContentComponent
     if (page === 'planets') ContentComponent = Planets
+    else if (page === 'users') ContentComponent = Users
     else if (page === 'people') ContentComponent = People
     else if (page === 'countries') ContentComponent = Countries
 
