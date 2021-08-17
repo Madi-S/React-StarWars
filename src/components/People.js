@@ -5,7 +5,7 @@ import Human from './Human'
 import Loader from 'react-loader-spinner'
 
 const fetchPeople = async key => {
-    const [endpoint, page] = key.queryKey
+    const [, page] = key.queryKey
     await sleep(2500)
     const res = await fetch(`http://swapi.dev/api/people?page=${page}`)
     return res.json()
